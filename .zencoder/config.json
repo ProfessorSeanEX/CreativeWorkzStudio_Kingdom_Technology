@@ -1,0 +1,87 @@
+{
+  "tools": {
+    "fulltext_search": {
+      "enabled": true,
+      "description": "Search for text patterns across files in the project",
+      "provider": "ripgrep",
+      "config": {
+        "max_results": 100,
+        "include_patterns": ["**/*"],
+        "exclude_patterns": [
+          "**/node_modules/**",
+          "**/build/**",
+          "**/.git/**",
+          "**/dist/**",
+          "**/__pycache__/**",
+          "**/*.pyc",
+          "**/venv/**",
+          "**/.venv/**"
+        ]
+      }
+    },
+    "file_search": {
+      "enabled": true,
+      "description": "Search for files by name or pattern",
+      "config": {
+        "max_results": 100,
+        "include_hidden": false
+      }
+    },
+    "ripgrep": {
+      "enabled": true,
+      "description": "Fast text search using ripgrep",
+      "binary_path": "/usr/bin/rg"
+    },
+    "web_search": {
+      "enabled": true,
+      "description": "Search the web for current information"
+    },
+    "shell": {
+      "enabled": true,
+      "description": "Execute shell commands for development tasks"
+    },
+    "file_operations": {
+      "enabled": true,
+      "description": "Read, write, and modify files in the project"
+    },
+    "code_analysis": {
+      "enabled": true,
+      "description": "Analyze code structure and dependencies"
+    },
+    "git": {
+      "enabled": true,
+      "description": "Git version control operations"
+    },
+    "context7": {
+      "enabled": true,
+      "description": "Access library documentation via Context7"
+    },
+    "sequential_thinking": {
+      "enabled": true,
+      "description": "Advanced reasoning and problem-solving through step-by-step analysis"
+    },
+    "playwright": {
+      "enabled": true,
+      "description": "Browser automation for E2E testing (auto-installed when needed)"
+    },
+    "knowledge_graph": {
+      "enabled": true,
+      "description": "Memory and knowledge graph for storing and retrieving context"
+    }
+  },
+  "mcp_servers": {
+    "github": {
+      "command": "/home/seanje/snap/code/208/.local/bin/uvx",
+      "args": ["mcp-server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "GitHub integration for repository operations"
+    }
+  },
+  "project": {
+    "root": "/media/seanje/Project/project_nova_dawn",
+    "name": "project_nova_dawn",
+    "type": "documentation"
+  }
+}

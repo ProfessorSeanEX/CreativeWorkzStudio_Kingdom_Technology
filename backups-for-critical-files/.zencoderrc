@@ -1,0 +1,117 @@
+{
+  "version": "1.0",
+  "tools": {
+    "fulltext_search": {
+      "enabled": true,
+      "provider": "ripgrep",
+      "config": {
+        "binary": "rg",
+        "max_results": 100,
+        "max_filesize": "10M",
+        "include_patterns": [
+          "**/*"
+        ],
+        "exclude_patterns": [
+          "**/node_modules/**",
+          "**/build/**",
+          "**/.git/**",
+          "**/dist/**",
+          "**/__pycache__/**",
+          "**/*.pyc",
+          "**/venv/**",
+          "**/.venv/**"
+        ],
+        "flags": [
+          "--smart-case",
+          "--hidden",
+          "--follow",
+          "--no-ignore-vcs"
+        ]
+      }
+    },
+    "file_search": {
+      "enabled": true,
+      "provider": "native",
+      "config": {
+        "max_results": 100,
+        "include_hidden": false,
+        "follow_symlinks": true
+      }
+    },
+    "code_analysis": {
+      "enabled": true,
+      "config": {
+        "analyze_dependencies": true,
+        "analyze_structure": true,
+        "analyze_complexity": true
+      }
+    },
+    "web_search": {
+      "enabled": true,
+      "description": "Search the web for up-to-date information"
+    },
+    "shell": {
+      "enabled": true,
+      "description": "Execute shell commands",
+      "config": {
+        "allowed_commands": [
+          "*"
+        ],
+        "working_directory": "/media/seanje/Project/project_nova_dawn"
+      }
+    },
+    "file_operations": {
+      "enabled": true,
+      "description": "Read, write, and edit files",
+      "config": {
+        "max_file_size": "10M",
+        "allowed_extensions": [
+          "*"
+        ]
+      }
+    },
+    "git": {
+      "enabled": true,
+      "description": "Git version control operations"
+    },
+    "context7": {
+      "enabled": true,
+      "description": "Access library documentation via Context7"
+    },
+    "sequential_thinking": {
+      "enabled": true,
+      "description": "Advanced reasoning and problem-solving through step-by-step analysis"
+    },
+    "playwright": {
+      "enabled": true,
+      "description": "Browser automation for E2E testing (auto-installed when needed)"
+    },
+    "knowledge_graph": {
+      "enabled": true,
+      "description": "Memory and knowledge graph for storing and retrieving context"
+    }
+  },
+  "mcp_servers": {
+    "github": {
+      "command": "/home/seanje/snap/code/208/.local/bin/uvx",
+      "args": [
+        "mcp-server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "GitHub integration for repository operations"
+    }
+  },
+  "project": {
+    "root": "/media/seanje/Project/project_nova_dawn",
+    "name": "project_nova_dawn",
+    "type": "documentation"
+  },
+  "search": {
+    "case_sensitive": false,
+    "whole_word": false,
+    "regex": true,
+    "max_results": 100
+  }
+}
