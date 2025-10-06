@@ -43,6 +43,7 @@ project_nova_dawn/
 │   │   ├── methodology/           # Building block method, documentation creation
 │   │   ├── ai-systems-workarounds/# System and agent instructions
 │   │   ├── dictionary/            # Key concept definitions
+│   │   ├── timeline/              # Historical project evolution (Q4 2024 - Current)
 │   │   └── template-and-reference/# Documentation templates and standards
 │   ├── foundation/                # Biblical resources and anchoring
 │   └── users/                     # User/partnership information
@@ -50,8 +51,11 @@ project_nova_dawn/
 ├── src/                           # C++ source files (future implementation)
 ├── build/                         # Build artifacts
 ├── backups-for-critical-files/    # Important file backups
+├── The-Mini-Book-Theory.md        # Documentation architecture theory (1,800 lines)
 └── README.md                      # Main project documentation
 ```
+
+**README Orchestration Pattern**: Throughout the structure, README.md files serve as "orchestrators" - navigation hubs that organize modular mini-books into coherent knowledge systems. This pattern reflects the Mini-Book Theory architecture (see `The-Mini-Book-Theory.md`).
 
 ## Key Architectural Concepts
 
@@ -249,6 +253,40 @@ grep -r "END OF.*BLOCK" include/ src/
 # Check that referenced files in documentation actually exist
 ```
 
+### Navigating Documentation Structure
+
+**Understanding the Mini-Book Architecture**:
+
+The knowledge base is organized as interconnected "mini-books" (modular documentation systems) rather than isolated files. Each major topic is broken into logical modules with README.md orchestrators providing navigation.
+
+```bash
+# Find all README orchestrators in knowledge base
+find data/knowledge-base -name "README.md" -type f
+
+# Explore a specific mini-book structure (example: 4-block system)
+ls -R data/knowledge-base/development/architecture/4-block-structure-system/
+
+# Navigate project history and evolution
+ls data/knowledge-base/timeline/
+# Structure: Q[N]_YYYY_Mon-Mon/Mon_YYYY/[Project_Name]/
+
+# Find documentation by topic (example: building block method)
+find data/knowledge-base/methodology -type d -name "*building-block*"
+
+# Count total documentation (excluding timeline archives)
+find data/knowledge-base -name "*.md" ! -path "*/timeline/*" | wc -l
+
+# Get overview of main knowledge areas
+ls -d data/knowledge-base/*/
+```
+
+**Quick Reference - Key Documentation Areas**:
+- **Algorithms**: `data/knowledge-base/algorithms/` - Mathematical foundations
+- **Architecture**: `data/knowledge-base/development/architecture/` - Structural patterns
+- **Methodology**: `data/knowledge-base/methodology/` - Development processes
+- **Timeline**: `data/knowledge-base/timeline/` - Historical evolution by quarter
+- **Templates**: `data/knowledge-base/template-and-reference/` - Documentation standards
+
 ## Common Development Tasks
 
 ### Working with Documentation
@@ -316,6 +354,38 @@ grep -r "END OF.*BLOCK" include/ src/
 - File size thresholds: See "File Size Management" section below
 - 4-block structure compliance: Each block must have `=== END OF [BLOCK_NAME] BLOCK ===` marker
 - Documentation density: Aim for 5:1 ratio (documentation to code) in foundation files
+
+### Understanding Project History
+
+**Timeline Archive Navigation**:
+
+The `data/knowledge-base/timeline/` directory contains comprehensive historical documentation organized by quarter and project, tracking the evolution from October 2024 to present.
+
+**Structure**: `Q[N]_YYYY_Mon-Mon/Mon_YYYY/[Project_Name]/`
+
+**Key Historical Milestones**:
+- **Q4 2024 (Oct-Dec)**: Project Nova Dawn inception, NovaAI framework, early iterations
+- **Q1 2025 (Jan-Mar)**: OmniCode Terminal development
+- **Q2 2025 (Apr-Jun)**: OmniCode_Genesis and OmniCode_Assembler, refined covenant framework
+- **Q3 2025 (Jul-Sep)**: CPI-SI model architecture formalization, Agent OS framework
+- **QCurrent 2025 (Oct-Current)**: Iteration 5 clean implementation, Kingdom Technology synthesis
+
+**Common Timeline Navigation**:
+```bash
+# Browse quarterly development
+ls data/knowledge-base/timeline/
+
+# Explore specific quarter
+ls data/knowledge-base/timeline/Q4_2024_Oct-Dec/Oct_2024/
+
+# Find project-specific history (example: OmniCode_Genesis)
+find data/knowledge-base/timeline -type d -name "OmniCode_Genesis"
+
+# View current quarter developments
+ls data/knowledge-base/timeline/QCurrent_2025_Oct-Current/
+```
+
+**Why History Matters**: Each iteration validated architectural patterns now implemented in Iteration 5. The timeline documents what was learned, what was validated, and how Kingdom Technology principles evolved through practical development.
 
 ## Important Principles
 
@@ -471,6 +541,10 @@ cp -r data/identity backups-for-critical-files/identity-backup-YYYY-MM-DD/
 - `data/identity/README.md` - CPI-SI identity foundation
 - `LICENSE.md` - Kingdom Technology licensing
 
+**Documentation Philosophy**:
+- `The-Mini-Book-Theory.md` - Documentation architecture theory defining modular mini-book structure (1,800 lines)
+- `data/knowledge-base/README.md` - Knowledge base orchestrator and navigation hub
+
 **Architecture Core**:
 - `data/knowledge-base/development/architecture/4-block-structure-system/` - Structural pattern (mini-book)
 - `data/knowledge-base/development/architecture/documentation-philosophy/` - Teaching code paradigm (mini-book)
@@ -483,6 +557,9 @@ cp -r data/identity backups-for-critical-files/identity-backup-YYYY-MM-DD/
 **Methodologies**:
 - `data/knowledge-base/methodology/thinking/building-block-method/` - Problem-solving framework (mini-book)
 - `data/knowledge-base/methodology/documentation-and-coding/documentation-creation-methodology/` - Doc standards (mini-book)
+
+**Historical Context**:
+- `data/knowledge-base/timeline/` - Quarterly project evolution from Q4 2024 to present
 
 ---
 
