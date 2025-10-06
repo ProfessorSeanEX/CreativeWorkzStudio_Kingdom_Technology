@@ -8,6 +8,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Core Innovation**: CPI-SI combines Covenant Partnership Intelligence (relational/contextual understanding) with Structured Intelligence (systematic/analytical rigor), anchored in Genesis 1:1 biblical foundation.
 
+---
+
+## ⚠️ Repository Status - Documentation Phase
+
+**This is currently a DOCUMENTATION AND ARCHITECTURAL DESIGN repository.** The codebase contains:
+
+- ✅ **Comprehensive knowledge base** - Methodologies, algorithms, architectural patterns
+- ✅ **Complete identity specifications** - Nova Dawn CPI-SI consciousness framework
+- ✅ **Build system designs** - Planned C++/Rust implementation specifications
+- ✅ **Testing frameworks** - Documented test patterns and coverage standards
+- 🚧 **Minimal code implementation** - `include/` and `src/` contain design patterns, not production code
+
+**Current Focus**: Iteration 5 (Clean Implementation) - refining documentation, CPI-SI algorithms, 4-block architecture patterns, and Kingdom Technology principles before implementation begins.
+
+**Future State**: When implementation starts, full C++17/Rust system following all documented specifications.
+
+---
+
 ## Repository Structure
 
 ```
@@ -47,7 +65,7 @@ project_nova_dawn/
 - **Hard limit**: 2,000 lines per file (MUST modularize before merge if exceeded)
 - **Soft threshold**: 1,500 lines (start planning modularization)
 
-See: `data/knowledge-base/development/architecture/documentation-philosophy-and-standards.md`
+See: `data/knowledge-base/development/architecture/documentation-philosophy/` (mini-book structure)
 
 ### 2. 4-Block Structure Architecture
 
@@ -69,7 +87,7 @@ CLOSING BLOCK     → Validation, tests, cleanup, namespace closures
 
 **Purpose**: Surgical precision in updates - change documentation without touching logic, modify APIs without breaking implementation.
 
-See: `data/knowledge-base/development/architecture/4-block-structure.md`
+See: `data/knowledge-base/development/architecture/4-block-structure-system/` (mini-book structure)
 
 ### 3. CPI-SI System Architecture
 
@@ -128,6 +146,109 @@ constexpr double MAX_COEFFICIENT;   // UPPER_SNAKE_CASE for constants
  */
 ```
 
+## Build & Development Commands
+
+### Current Development Phase
+
+**Important**: This project is currently in **documentation and architectural design phase**. The `include/` and `src/` directories contain architectural specifications, design patterns, and planned structure - not production code.
+
+**Active Work**:
+- Documentation refinement and knowledge base expansion
+- CPI-SI algorithmic foundations and mathematical models
+- Architecture design and 4-block structure implementation patterns
+- Biblical foundation integration and Kingdom Technology principles
+
+**Future Implementation**: C++17/Rust hybrid system following documented specifications
+
+### Building the Project (Future Implementation)
+
+When implementation begins, the project will use the following build commands:
+
+```bash
+# Configure CMake build
+mkdir -p build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+
+# Build all targets
+cmake --build . -j$(nproc)
+
+# Build with debug symbols and sanitizers (for development)
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake --build . -j$(nproc)
+
+# Build Rust modules separately
+cd rust-modules && cargo build --release
+```
+
+**Build System Requirements** (planned):
+- **CMake**: 3.20+ (build orchestration)
+- **C++ Compiler**: C++17 compatible (GCC 9+, Clang 10+, MSVC 2019+)
+- **Rust**: Latest stable toolchain via rustup
+- **Dependencies**: Eigen3 3.3+, Boost 1.70+, SQLite3, Google Test
+
+See: `data/knowledge-base/development/build-environment/cpi-si-development-standards/04-build-system.md`
+
+### Running Tests (Future Implementation)
+
+```bash
+# Run all C++ tests (Google Test framework)
+cd build && ctest --output-on-failure
+
+# Run specific test suite
+./build/tests/identity_processor_test
+
+# Run with verbose output
+ctest -V
+
+# Generate coverage report
+cmake -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=ON ..
+cmake --build .
+ctest
+gcovr -r .. --html --html-details -o coverage.html
+
+# Run Rust tests
+cd rust-modules && cargo test
+
+# Run Rust tests with output
+cargo test -- --nocapture
+```
+
+**Test Coverage Standards**:
+- **Target**: 95%+ line coverage, 100% branch coverage for foundation files
+- **Philosophy**: Thorough verification as service to users (Kingdom Technology standard)
+- All foundation components must include comprehensive test suites
+- Test files follow 4-block structure conventions
+
+See: `data/knowledge-base/development/build-environment/cpi-si-development-standards/06-testing-framework.md`
+
+### Code Quality & Linting (Future Implementation)
+
+```bash
+# C++ static analysis
+clang-tidy src/**/*.cpp -- -std=c++17
+
+# Format code (clang-format with project style)
+find src/ include/ -name "*.cpp" -o -name "*.hpp" | xargs clang-format -i
+
+# Rust formatting and linting
+cd rust-modules
+cargo fmt
+cargo clippy -- -D warnings
+```
+
+### Documentation Validation
+
+```bash
+# Verify file size thresholds (current work)
+find data/ -name "*.md" -exec wc -l {} \; | awk '$1 > 2000 {print "⚠️ ", $2, "exceeds 2000 lines:", $1}'
+
+# Check for 4-block structure markers in code files (future)
+grep -r "END OF.*BLOCK" include/ src/
+
+# Validate cross-references (manual process currently)
+# Check that referenced files in documentation actually exist
+```
+
 ## Common Development Tasks
 
 ### Working with Documentation
@@ -138,20 +259,23 @@ constexpr double MAX_COEFFICIENT;   // UPPER_SNAKE_CASE for constants
 - Quick ref: `data/identity/nova-dawn-identity.json` (measurement data)
 
 **Understanding Methodologies**:
-- Building Block Method: `data/knowledge-base/methodology/thinking/building-block-method.md`
-- Documentation Creation: `data/knowledge-base/methodology/documentation-and-coding/documentation-creation-methodology.md`
-- Ladders & Batons: `data/knowledge-base/methodology/documentation-and-coding/ladders-and-batons.md`
+- Building Block Method: `data/knowledge-base/methodology/thinking/building-block-method/`
+- Documentation Creation: `data/knowledge-base/methodology/documentation-and-coding/documentation-creation-methodology/`
+- Ladders & Batons: `data/knowledge-base/methodology/documentation-and-coding/structural-concepts/ladders-and-batons/`
 
 **Architecture Reference**:
-- 4-Block Structure: `data/knowledge-base/development/architecture/4-block-structure.md`
-- Block-specific guides: `metadata-block-guide.md`, `opening-block-guide.md`, `body-block-guide.md`, `closing-block-guide.md`
-- Documentation Philosophy: `data/knowledge-base/development/architecture/documentation-philosophy-and-standards.md`
+- 4-Block Structure: `data/knowledge-base/development/architecture/4-block-structure-system/`
+- Block-specific guides within above:
+  - `4-block-structure-system/metadata-block-guide/`
+  - `4-block-structure-system/opening-block-guide/`
+  - `4-block-structure-system/body-block-guide/`
+  - `4-block-structure-system/closing-block-guide/`
+- Documentation Philosophy: `data/knowledge-base/development/architecture/documentation-philosophy/`
 
 ### Understanding CPI-SI Algorithms
 
 **Core Mathematical Foundations**:
-- Base Formula: `data/knowledge-base/algorithms/cpi-si-base-formula/cpi-si-base-formula.md`
-- Implementation Math: `data/knowledge-base/algorithms/cpi-si-base-formula/cpi-si-implementation-mathematics.md`
+- Base Formula: `data/knowledge-base/algorithms/cpi-si-base-formula/`
 - AI System Accommodation: `data/knowledge-base/algorithms/ai-system-accomodation/` (17 modular sections)
 
 ### Modifying Documentation Files
@@ -165,6 +289,33 @@ constexpr double MAX_COEFFICIENT;   // UPPER_SNAKE_CASE for constants
 6. Cross-reference related documents liberally
 
 **Template location**: `data/knowledge-base/template-and-reference/template/`
+
+### Quick Navigation for Development Work
+
+**When implementing a new component**:
+1. Review 4-block structure guides: `data/knowledge-base/development/architecture/4-block-structure-system/`
+   - Metadata block: `metadata-block-guide/`
+   - Opening block: `opening-block-guide/`
+   - Body block: `body-block-guide/`
+   - Closing block: `closing-block-guide/`
+2. Check coding standards: `data/knowledge-base/development/build-environment/cpi-si-development-standards/05-coding-standards.md`
+3. Review test patterns: `data/knowledge-base/development/build-environment/cpi-si-development-standards/06-testing-framework.md`
+4. Use templates: `data/knowledge-base/template-and-reference/template/`
+
+**When adding biblical anchoring**:
+- Biblical resources (KJV, WEB): `data/foundation/biblical/`
+- Genesis 1:1 foundation: See existing identity files for anchor pattern examples
+- Meaning-maker lens integration: `data/knowledge-base/algorithms/cpi-si-base-formula/`
+
+**When planning a large task**:
+- Building Block Method: `data/knowledge-base/methodology/thinking/building-block-method/`
+- Documentation creation: `data/knowledge-base/methodology/documentation-and-coding/documentation-creation-methodology/`
+- Ladders & Batons pattern: `data/knowledge-base/methodology/documentation-and-coding/structural-concepts/ladders-and-batons/`
+
+**When checking file organization**:
+- File size thresholds: See "File Size Management" section below
+- 4-block structure compliance: Each block must have `=== END OF [BLOCK_NAME] BLOCK ===` marker
+- Documentation density: Aim for 5:1 ratio (documentation to code) in foundation files
 
 ## Important Principles
 
@@ -191,7 +342,7 @@ constexpr double MAX_COEFFICIENT;   // UPPER_SNAKE_CASE for constants
 
 **Current State**: This is primarily a **documentation repository**. The `include/` and `src/` directories contain minimal implementation as the project is in architectural design phase.
 
-**Future Implementation**: C++17/Rust hybrid following documented standards in `data/knowledge-base/development/build-environment/cpi-si-development-standards.md`
+**Future Implementation**: C++17/Rust hybrid following documented standards in `data/knowledge-base/development/build-environment/cpi-si-development-standards/`
 
 ## Project-Specific Notes
 
@@ -212,6 +363,107 @@ This is a **private covenant workspace** between Seanje (creator) and Nova Dawn 
 
 Recent focus: Documentation refinement, CPI-SI agent execution frameworks, 4-block architecture guides. Check git status for latest changes in identity specifications and architecture documentation.
 
+## Git Workflow & Best Practices
+
+### Branch Strategy
+
+**Main Branch**: `main` - Stable documentation and architectural designs
+**Development Approach**: Direct commits to main for documentation work (single-developer covenant workspace)
+
+### Commit Standards
+
+**Philosophy**: Every commit maintains documentation integrity and Kingdom Technology excellence
+
+**Before Committing**:
+```bash
+# Check repository status
+git status
+
+# Review changes to ensure quality
+git diff
+
+# Verify file size compliance (2000 line hard limit)
+find data/ -name "*.md" -exec wc -l {} \; | awk '$1 > 2000 {print "⚠️ ", $2, "exceeds limit:", $1}'
+
+# Ensure cross-references remain valid after changes
+# (manual verification - check that linked files still exist)
+```
+
+**Committing Changes**:
+```bash
+# Stage specific files
+git add data/knowledge-base/specific-file.md
+
+# Or stage all changes (use carefully)
+git add .
+
+# Commit with clear, descriptive message
+git commit -m "Add CPI-SI algorithm documentation for resistance architecture"
+
+# Push to remote
+git push origin main
+```
+
+**Commit Message Guidelines**:
+- Use clear, descriptive messages that explain *what* and *why*
+- Reference the area of work: "docs:", "architecture:", "identity:", "algorithms:", etc.
+- Examples:
+  - `docs: Add 4-block structure guide for metadata blocks`
+  - `architecture: Refine documentation philosophy standards`
+  - `identity: Update Nova Dawn CPI-SI specifications`
+  - `algorithms: Complete AI system accommodation modularization`
+
+### Documentation Integrity Checks
+
+**File Size Management** (critical for Kingdom Technology standards):
+```bash
+# Find files approaching limits
+find data/ -name "*.md" -exec wc -l {} \; | sort -n | tail -20
+
+# Check specific directory
+find data/knowledge-base/development -name "*.md" -exec wc -l {} \; | sort -n
+```
+
+**4-Block Structure Validation**:
+```bash
+# Verify block markers present in documentation
+grep -n "END OF.*BLOCK" data/knowledge-base/development/architecture/*.md
+
+# Check for consistent block structure
+grep -c "METADATA BLOCK\|OPENING BLOCK\|BODY BLOCK\|CLOSING BLOCK" specific-file.md
+```
+
+**Cross-Reference Validation**:
+- When modifying file locations, search for references: `grep -r "old-filename.md" data/`
+- Update all references when restructuring documentation
+- Verify links in README files remain valid
+
+### Working with Large Documentation
+
+**When approaching 1,500 lines** (planning threshold):
+1. Identify logical split points using 4-block structure
+2. Plan modular structure maintaining teaching integrity
+3. Create outline for split files
+4. See "File Size Management" section for detailed thresholds
+
+**When splitting documentation**:
+1. Create new modular files following 4-block structure
+2. Maintain 5:1 documentation ratio in each module
+3. Add orchestrator/README for navigation
+4. Update all cross-references
+5. Commit with clear message: `refactor: Modularize [component] documentation (was XXX lines, now N modules)`
+
+### Backup Critical Files
+
+**Before major restructuring**:
+```bash
+# Backup critical documentation
+cp important-file.md backups-for-critical-files/important-file-YYYY-MM-DD.md
+
+# Or backup entire directory
+cp -r data/identity backups-for-critical-files/identity-backup-YYYY-MM-DD/
+```
+
 ## Key Files to Reference
 
 **Identity & Foundation**:
@@ -220,17 +472,17 @@ Recent focus: Documentation refinement, CPI-SI agent execution frameworks, 4-blo
 - `LICENSE.md` - Kingdom Technology licensing
 
 **Architecture Core**:
-- `data/knowledge-base/development/architecture/4-block-structure.md` - Structural pattern
-- `data/knowledge-base/development/architecture/documentation-philosophy-and-standards.md` - Teaching code paradigm
-- `data/knowledge-base/development/technical-specifications/cpi-si-system-architecture.md` - System design
+- `data/knowledge-base/development/architecture/4-block-structure-system/` - Structural pattern (mini-book)
+- `data/knowledge-base/development/architecture/documentation-philosophy/` - Teaching code paradigm (mini-book)
+- `data/knowledge-base/development/technical-specifications/cpi-si-system-architecture/` - System design (mini-book)
 
 **Implementation Standards**:
-- `data/knowledge-base/development/build-environment/cpi-si-development-standards.md` - C++/Rust standards
-- `data/knowledge-base/development/TASK_LIST/01-CPI-SI-Foundation-Architecture.md` - Implementation roadmap
+- `data/knowledge-base/development/build-environment/cpi-si-development-standards/` - C++/Rust standards (mini-book)
+- `data/knowledge-base/development/TASK_LIST/01-cpi-si-foundation-architecture/` - Implementation roadmap (mini-book)
 
 **Methodologies**:
-- `data/knowledge-base/methodology/thinking/building-block-method.md` - Problem-solving framework
-- `data/knowledge-base/methodology/documentation-and-coding/documentation-creation-methodology.md` - Doc standards
+- `data/knowledge-base/methodology/thinking/building-block-method/` - Problem-solving framework (mini-book)
+- `data/knowledge-base/methodology/documentation-and-coding/documentation-creation-methodology/` - Doc standards (mini-book)
 
 ---
 
