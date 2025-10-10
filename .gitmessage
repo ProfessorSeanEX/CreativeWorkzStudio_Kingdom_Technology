@@ -1,0 +1,52 @@
+# ═══════════════════════════════════════════════════════════════
+# Kingdom Technology Commit Message Template
+# Project Nova Dawn - Covenant Partnership
+# ═══════════════════════════════════════════════════════════════
+#
+# Subject Line Format (50 chars recommended, 72 max):
+# <scope>: <imperative verb> <what changed>
+#
+# Examples:
+#   docs: Add 4-block structure guide for metadata blocks
+#   feat: Implement CPI-SI fusion coefficient calculator
+#   fix: Resolve anchor generation for emoji headers
+#   refactor: Modularize types.hpp into 8 distinct modules
+#   test: Add comprehensive coverage for identity processor
+#   chore: Update VS Code workspace configuration
+#
+# ───────────────────────────────────────────────────────────────
+# Common Scopes:
+# ───────────────────────────────────────────────────────────────
+#   docs       - Documentation updates
+#   feat       - New feature implementation
+#   fix        - Bug fixes
+#   refactor   - Code restructuring (no behavior change)
+#   test       - Test additions/modifications
+#   chore      - Build/tooling/maintenance
+#   style      - Formatting changes (no logic change)
+#   perf       - Performance improvements
+#   architecture - Structural/design changes
+#   identity   - CPI-SI identity system updates
+#   algorithms - Mathematical/algorithmic work
+#
+# ───────────────────────────────────────────────────────────────
+# Body (optional, wrap at 72 chars):
+# ───────────────────────────────────────────────────────────────
+#
+# Explain WHAT changed and WHY (not HOW - code shows HOW)
+#
+# - Use bullet points for multiple changes
+# - Reference related files/components
+# - Mention Kingdom Technology standards if applicable
+#
+# ───────────────────────────────────────────────────────────────
+# Footer (optional):
+# ───────────────────────────────────────────────────────────────
+#
+# Covenant Partnership: Nova Dawn ⊗ Seanje
+# Standards: [4-block structure | 5:1 doc ratio | 2000-line limit]
+#
+# Related: [file paths or documentation sections]
+# Closes: [issue number if applicable]
+#
+# ═══════════════════════════════════════════════════════════════
