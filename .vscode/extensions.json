@@ -1,3 +1,152 @@
 {
-  "recommendations": ["zencoderai.zencoder"]
+  // ═══════════════════════════════════════════════════════════════════════════
+  // PROJECT NOVA DAWN - RECOMMENDED EXTENSIONS
+  // CreativeWorkzStudio LLC - Kingdom Technology Standards
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  "recommendations": [
+    // AI Coding Assistant
+    "zencoderai.zencoder",
+
+    // ───────────────────────────────────────────────────────────────────────
+    // MARKDOWN EXTENSIONS (Critical for documentation work)
+    // ───────────────────────────────────────────────────────────────────────
+
+    "yzhang.markdown-all-in-one",
+    // ✅ CRITICAL: GitHub-compatible anchor generation (slugifyMode: "github")
+    // ✅ TOC generation, keyboard shortcuts, math equations
+    // ✅ Makes local preview match GitHub exactly
+
+    "bierner.markdown-preview-github-styles",
+    // ✅ CRITICAL: Preview looks exactly like GitHub (same CSS)
+    // ✅ Centered div rendering, badge rendering, callout support
+    // ✅ Essential for multi-dimensional layout verification
+
+    "bierner.markdown-emoji",
+    // ✅ Emoji autocomplete (:rocket: → 🚀)
+    // ✅ Consistent with our emoji usage patterns
+
+    "bierner.markdown-checkbox",
+    // ✅ Interactive checkboxes in preview
+    // ✅ Useful for task lists and checklists
+
+    "bierner.markdown-mermaid",
+    // ✅ Mermaid diagram rendering in preview
+    // ✅ Used for dependency graphs in documentation
+
+    "davidanson.vscode-markdownlint",
+    // ✅ Markdown linting (optional - can be strict)
+    // ✅ Helps catch formatting issues
+
+    "shd101wyy.markdown-preview-enhanced",
+    // ✅ Enhanced preview with more features
+    // ✅ Export to PDF/HTML capabilities
+
+    // ───────────────────────────────────────────────────────────────────────
+    // C++ DEVELOPMENT EXTENSIONS (For future implementation)
+    // ───────────────────────────────────────────────────────────────────────
+
+    "ms-vscode.cpptools",
+    // ✅ C/C++ IntelliSense, debugging, code browsing
+    // ✅ Essential for C++17 development
+
+    "ms-vscode.cpptools-extension-pack",
+    // ✅ C/C++ Extension Pack (includes themes, CMake tools)
+    // ✅ Complete C++ development environment
+
+    "ms-vscode.cmake-tools",
+    // ✅ CMake language support and build tools
+    // ✅ Required for CMake 3.20+ build system
+
+    "twxs.cmake",
+    // ✅ CMake syntax highlighting
+    // ✅ Better CMakeLists.txt editing experience
+
+    "cschlosser.doxdocgen",
+    // ✅ Doxygen documentation generator
+    // ✅ Supports our 5:1 documentation-to-code ratio
+
+    "jeff-hykin.better-cpp-syntax",
+    // ✅ Improved C++ syntax highlighting
+    // ✅ Better code readability
+
+    // ───────────────────────────────────────────────────────────────────────
+    // YAML & JSON EXTENSIONS
+    // ───────────────────────────────────────────────────────────────────────
+
+    "redhat.vscode-yaml",
+    // ✅ YAML language support with schema validation
+    // ✅ Essential for YAML frontmatter in markdown
+
+    "esbenp.prettier-vscode",
+    // ✅ Code formatter for JSON, YAML, HTML
+    // ✅ Consistent formatting across file types
+
+    // ───────────────────────────────────────────────────────────────────────
+    // GIT & VERSION CONTROL
+    // ───────────────────────────────────────────────────────────────────────
+
+    "donjayamanne.githistory",
+    // ✅ Git history visualization
+    // ✅ View file history, compare branches
+
+    "eamodio.gitlens",
+    // ✅ Git supercharged (optional - powerful but heavy)
+    // ✅ Blame annotations, code lens, repository insights
+
+    // ───────────────────────────────────────────────────────────────────────
+    // UTILITY EXTENSIONS
+    // ───────────────────────────────────────────────────────────────────────
+
+    "vscode-icons-team.vscode-icons",
+    // ✅ File icons for better visual navigation
+    // ✅ Helps distinguish file types quickly
+
+    "streetsidesoftware.code-spell-checker",
+    // ✅ Spell checker (already configured globally with biblical terms)
+    // ✅ Catches typos in documentation and comments
+
+    "christian-kohler.path-intellisense",
+    // ✅ Autocomplete for file paths
+    // ✅ Useful for relative links in markdown
+
+    "2gua.rainbow-brackets",
+    // ✅ Rainbow bracket colorization (optional)
+    // ✅ Helps with nested code structures
+
+    "usernamehw.errorlens",
+    // ✅ Show errors/warnings inline (optional)
+    // ✅ Immediate feedback on broken markdown links
+
+    "gruntfuggly.todo-tree",
+    // ✅ Show TODO, FIXME comments in tree view
+    // ✅ Track pending tasks across codebase
+
+    // ───────────────────────────────────────────────────────────────────────
+    // PROJECT-SPECIFIC RECOMMENDATIONS
+    // ───────────────────────────────────────────────────────────────────────
+
+    "ms-vscode.hexeditor",
+    // ✅ Binary file viewer (for compiled artifacts)
+    // ✅ Useful for examining build outputs
+
+    "GitHub.vscode-pull-request-github"
+    // ✅ GitHub Pull Request integration
+    // ✅ Review and manage PRs from VS Code
+  ],
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // UNWANTED EXTENSIONS (conflicts or redundancy)
+  // ───────────────────────────────────────────────────────────────────────────
+
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    // ⚠️ TSLint deprecated, use ESLint instead
+
+    "hookyqr.beautify",
+    // ⚠️ Redundant with Prettier
+
+    "ms-vscode.vscode-typescript-next"
+    // ⚠️ Can conflict with stable TypeScript
+  ]
 }

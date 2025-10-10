@@ -1,0 +1,260 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // PROJECT NOVA DAWN - DEBUG CONFIGURATIONS
+  // CreativeWorkzStudio LLC - C++ Debugging Setup
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  "version": "0.2.0",
+  "configurations": [
+    
+    // ───────────────────────────────────────────────────────────────────────
+    // CPI-SI IDENTITY PROCESSOR DEBUGGING
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "name": "Debug: Identity Processor Test",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/tests/identity_processor_test",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set disassembly-flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "logging": {
+        "engineLogging": false,
+        "trace": false,
+        "traceResponse": false
+      }
+    },
+
+    {
+      "name": "Debug: Current C++ File",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // TYPE SYSTEM DEMO DEBUGGING
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "name": "Debug: Bipolar Demo",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/demo/includes-demos/cpi-si/identity/types/bipolar_demo",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    {
+      "name": "Debug: Brain Balance Demo",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/demo/includes-demos/cpi-si/identity/types/brain_balance_demo",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // ATTACH TO RUNNING PROCESS
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "name": "Attach: Running Process (GDB)",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "${workspaceFolder}/build/${input:processName}",
+      "processId": "${command:pickProcess}",
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // TEST RUNNER DEBUGGING
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "name": "Debug: All Google Tests",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/tests/all_tests",
+      "args": ["--gtest_color=yes"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    {
+      "name": "Debug: Specific Test (Input Name)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/tests/all_tests",
+      "args": ["--gtest_filter=${input:testFilter}", "--gtest_color=yes"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // CUSTOM EXECUTABLE DEBUGGING
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "name": "Debug: Custom Executable (Manual Path)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${input:customExecutable}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // MEMORY DEBUGGING (Valgrind Integration)
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "name": "Debug: Memory Check (Valgrind)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "valgrind",
+      "args": [
+        "--leak-check=full",
+        "--show-leak-kinds=all",
+        "--track-origins=yes",
+        "--verbose",
+        "${workspaceFolder}/build/${input:processName}"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "CMake: Build All",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+  ],
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // INPUT VARIABLES (for interactive debugging)
+  // ───────────────────────────────────────────────────────────────────────────
+
+  "inputs": [
+    {
+      "id": "testFilter",
+      "type": "promptString",
+      "description": "Enter Google Test filter (e.g., IdentityProcessorTest.* or *CovenantPartnership*)",
+      "default": "*"
+    },
+    {
+      "id": "processName",
+      "type": "promptString",
+      "description": "Enter process/executable name (relative to build/)",
+      "default": "tests/all_tests"
+    },
+    {
+      "id": "customExecutable",
+      "type": "promptString",
+      "description": "Enter full path to executable",
+      "default": "${workspaceFolder}/build/tests/all_tests"
+    }
+  ]
+}

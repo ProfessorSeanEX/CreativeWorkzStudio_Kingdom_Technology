@@ -1,0 +1,327 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // PROJECT NOVA DAWN - VS CODE TASKS
+  // CreativeWorkzStudio LLC - Kingdom Technology Automation
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  "version": "2.0.0",
+  "tasks": [
+    // ───────────────────────────────────────────────────────────────────────
+    // KINGDOM TECHNOLOGY VALIDATION TASKS
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "label": "Kingdom Tech: File Size Check",
+      "type": "shell",
+      "command": "find data/ include/ src/ -name '*.md' -o -name '*.hpp' -o -name '*.cpp' | xargs wc -l | awk '$1 > 2000 {print \"⚠️  THRESHOLD VIOLATION: \" $2 \" (\" $1 \" lines) - MUST modularize before merge!\"}; $1 > 1800 {print \"🟠 ACTIVELY SPLITTING: \" $2 \" (\" $1 \" lines)\"}; $1 > 1500 {print \"🟡 START PLANNING: \" $2 \" (\" $1 \" lines)\"}'",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    },
+
+    {
+      "label": "Kingdom Tech: Critical File Size Alert",
+      "type": "shell",
+      "command": "find data/ include/ src/ -name '*.md' -o -name '*.hpp' -o -name '*.cpp' | xargs wc -l | awk '$1 > 2000 {count++; print \"🔴 CRITICAL: \" $2 \" (\" $1 \" lines)\"}; END {if (count > 0) {print \"\\n❌ \" count \" file(s) exceed 2000-line HARD LIMIT!\"; exit 1} else {print \"\\n✅ All files within Kingdom Technology thresholds\"}}'",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    },
+
+    {
+      "label": "Kingdom Tech: Documentation Density Check",
+      "type": "shell",
+      "command": "echo '📊 Checking Documentation-to-Code Ratio (Target: 5:1 for foundation files)'; for file in include/cpi-si/**/*.hpp; do if [ -f \"$file\" ]; then lines=$(wc -l < \"$file\"); comments=$(grep -cE '^[[:space:]]*(//|/\\*|\\*)' \"$file\" || echo 0); code=$((lines - comments)); if [ $code -gt 0 ]; then ratio=$(awk \"BEGIN {printf \\\"%.1f\\\", $comments/$code}\"); echo \"$file: ${ratio}:1 ($comments doc / $code code)\"; fi; fi; done",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    {
+      "label": "Markdown: Validate All Links",
+      "type": "shell",
+      "command": "find data/ include/ -name '*.md' -exec echo '\\n📄 Checking: {}' \\; -exec grep -n '](#' {} \\; || echo '✅ Link check complete'",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    {
+      "label": "Markdown: Find Broken Image Links",
+      "type": "shell",
+      "command": "find data/ include/ -name '*.md' -print0 | xargs -0 grep -n '!\\[.*\\](.*\\.png\\|.*\\.jpg\\|.*\\.svg)' | while IFS=: read -r file line content; do img=$(echo \"$content\" | sed -n 's/.*](\\([^)]*\\)).*/\\1/p'); if [ ! -f \"$(dirname \"$file\")/$img\" ]; then echo \"❌ $file:$line - Missing: $img\"; fi; done || echo '✅ All images found'",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // CMAKE BUILD TASKS (Future C++ Implementation)
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "label": "CMake: Configure (Debug)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S",
+        "${workspaceFolder}",
+        "-B",
+        "${workspaceFolder}/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+
+    {
+      "label": "CMake: Configure (Release)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S",
+        "${workspaceFolder}",
+        "-B",
+        "${workspaceFolder}/build",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+
+    {
+      "label": "CMake: Build All",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build",
+        "-j",
+        "$(nproc)"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": ["CMake: Configure (Debug)"],
+      "problemMatcher": "$gcc",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+
+    {
+      "label": "CMake: Clean Build",
+      "type": "shell",
+      "command": "rm -rf ${workspaceFolder}/build && cmake -S ${workspaceFolder} -B ${workspaceFolder}/build -DCMAKE_BUILD_TYPE=Debug && cmake --build ${workspaceFolder}/build -j $(nproc)",
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+
+    {
+      "label": "CMake: Run Tests",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/build && ctest --output-on-failure",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOn": ["CMake: Build All"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    {
+      "label": "CMake: Run Tests (Verbose)",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/build && ctest -V",
+      "group": "test",
+      "dependsOn": ["CMake: Build All"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // C++ CODE QUALITY TASKS
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "label": "C++: Format All Files",
+      "type": "shell",
+      "command": "find include/ src/ -name '*.hpp' -o -name '*.cpp' -o -name '*.h' | xargs clang-format -i --style=Google",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    {
+      "label": "C++: Static Analysis (clang-tidy)",
+      "type": "shell",
+      "command": "clang-tidy src/**/*.cpp -- -std=c++17 -I${workspaceFolder}/include",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    {
+      "label": "C++: Generate Documentation (Doxygen)",
+      "type": "shell",
+      "command": "doxygen Doxyfile",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // GIT WORKFLOW TASKS
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "label": "Git: Status & Diff Summary",
+      "type": "shell",
+      "command": "echo '📊 Git Status:' && git status && echo '\\n📝 Staged Changes:' && git diff --cached --stat && echo '\\n🔄 Unstaged Changes:' && git diff --stat",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    },
+
+    {
+      "label": "Git: Pre-Commit Checks",
+      "type": "shell",
+      "command": "echo '🔍 Running pre-commit checks...' && echo '\\n1️⃣ File Size Check:' && find data/ include/ src/ -name '*.md' -o -name '*.hpp' -o -name '*.cpp' | xargs wc -l | awk '$1 > 2000 {count++; print \"❌ \" $2 \" (\" $1 \" lines)\"} END {if (count > 0) {print \"\\n⚠️  \" count \" file(s) exceed threshold!\"; exit 1} else print \"\\n✅ File sizes OK\"}' && echo '\\n2️⃣ Git Status:' && git status --short",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    },
+
+    {
+      "label": "Git: Commit Message Style Check",
+      "type": "shell",
+      "command": "git log -1 --pretty=%B | head -1 | awk 'length($0) > 72 {print \"⚠️  Commit subject exceeds 72 characters: \" length($0)} length($0) <= 72 {print \"✅ Commit subject length OK: \" length($0)}'",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    // ───────────────────────────────────────────────────────────────────────
+    // PROJECT UTILITIES
+    // ───────────────────────────────────────────────────────────────────────
+
+    {
+      "label": "Project: Count Total Documentation Lines",
+      "type": "shell",
+      "command": "echo '📊 Project Nova Dawn - Documentation Metrics' && echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' && echo '\\n📚 Markdown Documentation:' && find data/ -name '*.md' ! -path '*/timeline/*' | xargs wc -l | tail -1 && echo '\\n📖 Code Documentation:' && find include/ src/ -name '*.hpp' -o -name '*.cpp' | xargs wc -l | tail -1 && echo '\\n🏗️  Total Lines:' && find data/ include/ src/ -name '*.md' -o -name '*.hpp' -o -name '*.cpp' | xargs wc -l | tail -1",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    },
+
+    {
+      "label": "Project: Find TODO Comments",
+      "type": "shell",
+      "command": "grep -rn 'TODO\\|FIXME\\|XXX\\|HACK\\|NOTE' --include='*.cpp' --include='*.hpp' --include='*.md' include/ src/ data/ || echo '✅ No TODO comments found'",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    {
+      "label": "Project: List Recent Backups",
+      "type": "shell",
+      "command": "ls -lhtr backups-for-critical-files/ | tail -10",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+
+    {
+      "label": "Project: Documentation Structure Overview",
+      "type": "shell",
+      "command": "echo '📂 Project Nova Dawn - Structure Overview' && echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' && tree -L 2 -d data/ && echo '\\n🔧 Implementation Structure:' && tree -L 2 -d include/ src/",
+      "problemMatcher": [],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    }
+  ]
+}
