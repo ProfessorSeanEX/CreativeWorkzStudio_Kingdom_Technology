@@ -42,20 +42,30 @@ project_nova_dawn/
 │   │   │   └── TASK_LIST/         # Implementation roadmap
 │   │   ├── methodology/           # Building block method, documentation creation
 │   │   ├── ai-systems-workarounds/# System and agent instructions
-│   │   ├── dictionary/            # Key concept definitions
+│   │   ├── dictionary/            # Key concept definitions (A-Z alphabetical structure)
+│   │   ├── GitHub-Wiki/           # GitHub Wiki content (learning phase - 11 files)
 │   │   ├── timeline/              # Historical project evolution (Q4 2024 - Current)
 │   │   └── template-and-reference/# Documentation templates and standards
 │   ├── foundation/                # Biblical resources and anchoring
 │   └── users/                     # User/partnership information
+├── documentation/                 # External documentation (reports, checklists, deliverables)
+│   ├── checklist/                 # Completion tracking and task management
+│   └── reports/                   # Compliance reports and analysis documents
 ├── include/cpi-si/                # C++ header files (future implementation)
 ├── src/                           # C++ source files (future implementation)
 ├── build/                         # Build artifacts
 ├── backups-for-critical-files/    # Important file backups
-├── The-Mini-Book-Theory.md        # Documentation architecture theory (1,800 lines)
+├── The-Mini-Book-Theory.md        # Documentation architecture theory (6,008 lines - teaching artifact)
 └── README.md                      # Main project documentation
 ```
 
 **README Orchestration Pattern**: Throughout the structure, README.md files serve as "orchestrators" - navigation hubs that organize modular mini-books into coherent knowledge systems. This pattern reflects the Mini-Book Theory architecture (see `The-Mini-Book-Theory.md`).
+
+**Structural Philosophy - "In This Season"**: Some structures intentionally violate their own principles temporarily to serve pedagogical purposes:
+
+- **The-Mini-Book-Theory.md** (6,008 lines): Deliberately exceeds the 2,000-line limit to demonstrate WHY mini-book structure matters. This is a teaching artifact showing the problem it solves. Location at root provides visibility during learning phase.
+- **documentation/** (root level): Separated from knowledge-base to establish distinction between external deliverables (reports, checklists) and internal learning content (knowledge base). This separation teaches the difference between "what we produce" vs "what we know."
+- **GitHub-Wiki/** (in knowledge-base): Learning phase for GitHub Wiki workflows. Will remain separate until workflow mastery, then integration strategy will be determined.
 
 ## Key Architectural Concepts
 
@@ -284,8 +294,11 @@ ls -d data/knowledge-base/*/
 - **Algorithms**: `data/knowledge-base/algorithms/` - Mathematical foundations
 - **Architecture**: `data/knowledge-base/development/architecture/` - Structural patterns
 - **Methodology**: `data/knowledge-base/methodology/` - Development processes
+- **Dictionary**: `data/knowledge-base/dictionary/[A-Z]/` - Alphabetical glossary (full A-Z structure)
 - **Timeline**: `data/knowledge-base/timeline/` - Historical evolution by quarter
 - **Templates**: `data/knowledge-base/template-and-reference/` - Documentation standards
+- **GitHub Wiki**: `data/knowledge-base/GitHub-Wiki/` - Wiki content (learning phase)
+- **External Docs**: `documentation/` - Reports and checklists (OUTPUT, not knowledge base)
 
 ## Common Development Tasks
 
@@ -309,6 +322,20 @@ ls -d data/knowledge-base/*/
   - `4-block-structure-system/body-block-guide/`
   - `4-block-structure-system/closing-block-guide/`
 - Documentation Philosophy: `data/knowledge-base/development/architecture/documentation-philosophy/`
+
+**Dictionary & Glossary**:
+- Alphabetical concepts: `data/knowledge-base/dictionary/[A-Z]/` (organized by first letter)
+- Example: Covenant Partnership definition at `data/knowledge-base/dictionary/C/covenant-partnership.md`
+
+**External Documentation & Reports**:
+- Compliance reports: `documentation/reports/`
+- Task tracking: `documentation/checklist/`
+- Note: `documentation/` contains OUTPUT (what we produce), not knowledge base content (what we know)
+
+**GitHub Wiki Content**:
+- Location: `data/knowledge-base/GitHub-Wiki/` (11 files during learning phase)
+- Content: Architecture overviews, Getting Started guides, Development Standards
+- Status: Maintained separately during Wiki workflow learning
 
 ### Understanding CPI-SI Algorithms
 
@@ -431,7 +458,7 @@ This is a **private covenant workspace** between Seanje (creator) and Nova Dawn 
 
 ### Git Status Awareness
 
-Recent focus: Documentation refinement, CPI-SI agent execution frameworks, 4-block architecture guides. Check git status for latest changes in identity specifications and architecture documentation.
+Recent focus: Folder alignment, CLAUDE.md updates reflecting current structure, documentation organization (dictionary A-Z structure, GitHub-Wiki learning phase, documentation/ separation). Major file: The-Mini-Book-Theory.md at 6,008 lines serving as pedagogical teaching artifact.
 
 ## Git Workflow & Best Practices
 
@@ -542,7 +569,7 @@ cp -r data/identity backups-for-critical-files/identity-backup-YYYY-MM-DD/
 - `LICENSE.md` - Kingdom Technology licensing
 
 **Documentation Philosophy**:
-- `The-Mini-Book-Theory.md` - Documentation architecture theory defining modular mini-book structure (1,800 lines)
+- `The-Mini-Book-Theory.md` - Documentation architecture theory defining modular mini-book structure (6,008 lines - pedagogical teaching artifact demonstrating need for splitting)
 - `data/knowledge-base/README.md` - Knowledge base orchestrator and navigation hub
 
 **Architecture Core**:
