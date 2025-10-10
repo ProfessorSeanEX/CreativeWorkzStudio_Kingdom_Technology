@@ -358,7 +358,7 @@ See types/README.md lines 313-372 for extensive examples.
 | 📊 | Metrics/Data | Statistics, measurements |
 | 🌟 | Important | About sections, highlights |
 | 💬 | Communication | Callouts, notes |
-| 📘 📑 | Document/TOC | Introductions, tables of contents |
+| 📘 📑 | Document/TOC | Introductions, tables of contents (see § IX for anchors) |
 
 </div>
 
@@ -680,13 +680,46 @@ license: "Kingdom Technology Open Source License"
 ---
 ```
 
-**Location**: Lines 1-36 of this document demonstrate it.
+**Location**: Lines 1-9 of this document demonstrate hybrid approach (7 fields).
 
 ---
 
 <div align="center">
 
-## **§ IX: STANDARDS CHECKLIST**
+## **§ IX: TOC ANCHOR GENERATION**
+
+*GitHub-Compatible Link Patterns*
+
+---
+
+</div>
+
+### **Anchor Generation Rules**
+
+| **Header** | **Pattern** | **Example** |
+|:-----------|:------------|:------------|
+| **Emoji** | Strips completely | `🎯 Next` → `#next-steps` |
+| **Chapter** | Add `-1` if TOC exists | `## CHAPTER I` → `#chapter-i-title-1` |
+| **Section** | Space after `.` = `--` | `### A. Name` → `#a--name` |
+| **Subsection** | Space after dot = `--` | `#### A.1. Name` → `#a1--name` |
+| **`&` char** | Becomes `--` | `Biblical & Math` → `#biblical--math` |
+| **`:` char** | Strips | `CHAPTER I:` → `#chapter-i` |
+
+### **Common Errors**
+
+```markdown
+❌ #-next-steps          → ✅ #next-steps (emoji strips)
+❌ #chapter-i-overview   → ✅ #chapter-i-overview-1 (TOC duplicate)
+❌ #a-section-name       → ✅ #a--section-name (double hyphen)
+```
+
+**Verification**: Test all links in Markdown Preview before publishing.
+
+---
+
+<div align="center">
+
+## **§ X: STANDARDS CHECKLIST**
 
 *Pre-Publication Verification*
 
@@ -696,7 +729,7 @@ license: "Kingdom Technology Open Source License"
 
 Before publishing, verify:
 
-- [ ] YAML frontmatter complete (all required fields)
+- [ ] YAML frontmatter complete (7 essential fields)
 - [ ] Title block centered (H1 → H2 → H3 hierarchy)
 - [ ] Badge array configured (appropriate colors)
 - [ ] Module introduction section present
@@ -708,6 +741,7 @@ Before publishing, verify:
 - [ ] GitHub callouts use proper syntax
 - [ ] Hyperlinks formatted (bold for primary)
 - [ ] File size <2,000 lines (or justified exception)
+- [ ] TOC anchors tested in Markdown Preview
 - [ ] Cross-references verified working
 - [ ] Emoji usage restrained (1 per header max)
 - [ ] Code blocks properly categorized (teaching vs reference)
@@ -716,7 +750,7 @@ Before publishing, verify:
 
 <div align="center">
 
-## **§ X: DECISION FLOWCHART**
+## **§ XI: DECISION FLOWCHART**
 
 *Quick Pattern Selection*
 

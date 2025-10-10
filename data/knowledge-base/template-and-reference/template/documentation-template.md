@@ -264,14 +264,13 @@ license: Kingdom Technology Open Source License
 
 > #### **FRONT MATTER**
 >
-> - **[Template Introduction](#-template-introduction)**
-> - **[Template User Orientation](#template-user-orientation-understanding-this-document)**
-> - **[Biblical & Philosophical Foundation](#biblical--philosophical-foundation)**
 > - **[Template Metadata Summary](#template-metadata-summary)**
+> - **[Next Steps for Template Users](#next-steps-for-template-users)**
+> - **[Kingdom Technology Foundation](#kingdom-technology-foundation)**
 
 ---
 
-> #### **CHAPTER I: TEMPLATE STRUCTURE**
+> #### **[CHAPTER I: TEMPLATE STRUCTURE](#chapter-i-template-structure-1)**
 >
 > - **[A. YAML Frontmatter](#a--yaml-frontmatter)**
 >   - [A.1. Hybrid YAML Approach](#a1--hybrid-yaml-approach)
@@ -293,7 +292,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **CHAPTER II: PATTERN LIBRARY**
+> #### **[CHAPTER II: PATTERN LIBRARY](#chapter-ii-pattern-library-1)**
 >
 > - **[A. Chapter Architecture](#a--chapter-architecture)**
 >   - [A.1. Chapter Opening Pattern](#a1--chapter-opening-pattern)
@@ -312,7 +311,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **CHAPTER III: LAYOUT DECISIONS**
+> #### **[CHAPTER III: LAYOUT DECISIONS](#chapter-iii-layout-decisions-1)**
 >
 > - **[A. Center-Left Hybrid Strategy](#a--center-left-hybrid-strategy)**
 >   - [A.1. When to Center](#a1--when-to-center)
@@ -325,7 +324,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **CHAPTER IV: STANDARDS & PHILOSOPHY**
+> #### **[CHAPTER IV: STANDARDS & PHILOSOPHY](#chapter-iv-standards--philosophy-1)**
 >
 > - **[A. Mini-Book Theory Compliance](#a--mini-book-theory-compliance)**
 >   - [A.1. File Size Thresholds](#a1--file-size-thresholds)
@@ -832,7 +831,7 @@ After the title block and badges, include a **centered introduction block** that
 
 </div>
 
-**The Purpose**: Final front matter element before chapters begin. Provides complete hierarchical navigation index.
+**The Purpose**: Final front matter element before chapters begin. Provides complete hierarchical navigation index with GitHub-compatible anchors.
 
 **Pattern Structure**:
 
@@ -857,34 +856,89 @@ After the title block and badges, include a **centered introduction block** that
 
 > #### **FRONT MATTER**
 >
-> - **[Module/Template Introduction](#anchor)**
-> - **[User Orientation](#anchor)**
-> - **[Biblical Foundation](#anchor)**
-> - **[Metadata Summary](#anchor)**
+> - **[Module/Template Introduction](#module-introduction)**
+> - **[User Orientation](#user-orientation-subtitle-here)**
+> - **[Biblical Foundation](#biblical--philosophical-foundation)**
+> - **[Metadata Summary](#module-metadata-summary)**
+> - **[Next Steps](#next-steps-for-developers)**
+> - **[Kingdom Technology Foundation](#kingdom-technology-foundation)**
 
 ---
 
-> #### **CHAPTER I: [TITLE]**
+> #### **[CHAPTER I: [TITLE]](#chapter-i-title-here-1)**
 >
-> - **[A. Section](#anchor)**
->   - [A.1. Subsection](#anchor)
->   - [A.2. Subsection](#anchor)
+> - **[A. Section Name](#a--section-name)**
+>   - [A.1. Subsection](#a1--subsection-name)
+>   - [A.2. Subsection](#a2--subsection-name)
 >
-> - **[B. Section](#anchor)**
->   - [B.1. Subsection](#anchor)
+> - **[B. Section Name](#b--section-name)**
+>   - [B.1. Subsection](#b1--subsection-name)
+>   - [B.2. Subsection](#b2--subsection-name)
 
 ---
 
-> #### **CHAPTER II: [TITLE]**
+> #### **[CHAPTER II: [TITLE]](#chapter-ii-title-here-1)**
+>
+> - **[A. Section](#a--section-name)**
+>   - [A.1. Subsection](#a1--subsection-name)
+
+---
+
 [Continue for all chapters...]
 ```
 
-**Key Elements**:
-- **Centered header block** with 📑 emoji and triple-dash separators
-- **Complete Section Index** as left-aligned blockquoted structure
-- **Front Matter section** listing pre-chapter content
-- **Each chapter** in separate blockquote with triple-dash separators between
-- **Two-level hierarchy**: Major sections (A, B) + Subsections (A.1, A.2)
+**Critical Anchor Generation Rules** (Verified via types/README.md deep quality work):
+
+| **Header Type** | **Markdown** | **Anchor Pattern** | **Example** |
+|-----------------|--------------|-------------------|-------------|
+| **Emoji Headers** | `### **🎯 Next Steps**` | Emoji strips completely | `#next-steps-for-developers` |
+| **Chapter Titles** | `## **CHAPTER I: OVERVIEW**` | Add `-1` suffix (TOC preview duplicates) | `#chapter-i-overview-1` |
+| **Section Headers** | `### **A. Purpose**` | Space after period = double hyphen | `#a--purpose--vision` |
+| **Subsections** | `#### **A.1. Philosophy**` | Space after dot = double hyphen | `#a1--the-philosophy` |
+| **Special Chars** | `### **Biblical & Math**` | `&` becomes `--` | `#biblical--mathematical-foundation` |
+
+> [!IMPORTANT]
+> **GitHub Anchor Generation Algorithm**
+>
+> **Step 1**: Convert to lowercase: `CHAPTER I: Overview` → `chapter i: overview`
+>
+> **Step 2**: Replace spaces with hyphens: `chapter i: overview` → `chapter-i:-overview`
+>
+> **Step 3**: Handle special characters:
+> - `:` strips completely → `chapter-i-overview`
+> - `&` becomes `--` → `biblical--math`
+> - Parentheses/quotes strip → `the-overview`
+>
+> **Step 4**: Handle emojis - **completely stripped** (no hyphen placeholder):
+> - `🎯 Next Steps` → `next-steps` (NOT `#-next-steps`)
+>
+> **Step 5**: Handle duplicates:
+> - If TOC preview exists at top, add `-1` to chapter links
+> - Only applies to headers duplicated by TOC section itself
+
+**Verification Workflow**:
+
+1. **Create TOC** with best-guess anchors
+2. **Enable Markdown Preview** in VS Code
+3. **Test each link** - click to verify navigation
+4. **Fix broken links** following anchor rules above
+5. **Re-test** until 100% functional
+
+**Common Anchor Errors**:
+
+```markdown
+❌ Wrong: #-module-introduction        (emoji becomes hyphen)
+✅ Right: #module-introduction         (emoji strips completely)
+
+❌ Wrong: #chapter-i-overview          (no -1 suffix when TOC exists)
+✅ Right: #chapter-i-overview-1        (TOC preview creates duplicate)
+
+❌ Wrong: #a-section-name              (single hyphen after A)
+✅ Right: #a--section-name             (space after period = double hyphen)
+
+❌ Wrong: #biblical-&-math             (& stays as is)
+✅ Right: #biblical--math              (& becomes double hyphen)
+```
 
 > [!NOTE]
 > **TOC Placeholder During Development**
