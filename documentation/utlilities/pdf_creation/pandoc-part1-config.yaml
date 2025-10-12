@@ -1,0 +1,74 @@
+# CreativeWorkzStudio Documentation Standards
+# Part 1 Pandoc Configuration for Professional Typography
+# Eisvogel Template with Part 1 Specifications
+
+# Document Metadata (from YAML frontmatter)
+# These are read automatically from the markdown file
+
+# Page Layout - Part 1 Textbook Standards
+geometry:
+  - top=1in
+  - bottom=1in
+  - left=1in
+  - right=1in
+papersize: letter  # 8.5×11 inches (Part 1 standard)
+
+# Typography - Part 1 Professional Standards
+fontsize: 11pt  # Part 1 range: 10-12pt
+linestretch: 1.4  # Part 1 range: 1.3-1.5 (140% leading)
+
+# Font Configuration - Part 1 Professional Fonts
+# Using TeX Gyre fonts (high-quality free alternatives to commercial fonts)
+mainfont: "TeX Gyre Pagella"  # Palatino alternative (Part 1 recommended)
+sansfont: "TeX Gyre Heros"     # Helvetica alternative
+monofont: "TeX Gyre Cursor"    # Courier alternative
+mathfont: "TeX Gyre Pagella Math"
+
+# Eisvogel Template Specific Settings
+titlepage: true
+titlepage-color: "FFFFFF"
+titlepage-text-color: "000000"
+titlepage-rule-color: "360049"
+titlepage-rule-height: 2
+
+# Table of Contents
+toc: true
+toc-own-page: true
+toc-title: "Table of Contents"
+
+# Section Numbering
+numbersections: true
+secnumdepth: 3
+
+# Links and References
+linkcolor: blue
+urlcolor: blue
+links-as-notes: false
+
+# Code Blocks (for code examples in template)
+listings: false  # Disabled due to special character issues (⊗ symbol)
+highlight-style: tango
+
+# Bibliography (if references.bib exists)
+# bibliography: references.bib
+# csl: citation-style.csl
+
+# Header/Footer and Unicode Support
+# Combined in header-includes (preamble section)
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[L]{\leftmark}
+  \fancyhead[R]{CreativeWorkzStudio LLC}
+  \fancyfoot[C]{\thepage}
+  \usepackage{newunicodechar}
+  \newunicodechar{⊗}{\ensuremath{\otimes}}
+
+# Part 1 Compliance Notes:
+# ✅ Page Size: Letter (8.5×11")
+# ✅ Margins: 1 inch all sides
+# ✅ Font: TeX Gyre Pagella (Palatino alternative - Part 1 recommended)
+# ✅ Font Size: 11pt (within Part 1 range: 10-12pt)
+# ✅ Line Spacing: 1.4× = 140% (within Part 1 range: 1.3-1.5× = 130-150%)
+# ✅ Professional Typography: Six-level hierarchy from Markdown headers
+# ✅ TOC: Auto-generated from document structure

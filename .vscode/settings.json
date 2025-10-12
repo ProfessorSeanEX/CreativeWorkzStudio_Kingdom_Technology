@@ -25,11 +25,11 @@
   // ───────────────────────────────────────────────────────────────────────────
 
   "files.exclude": {
-    "**/build": false,  // Show build folder (we use it actively)
+    "**/build": false, // Show build folder (we use it actively)
     "**/.cmake": true,
     "**/CMakeFiles": true,
     "**/node_modules": true,
-    "**/.git": false     // Show .git for visibility
+    "**/.git": false // Show .git for visibility
   },
 
   "files.watcherExclude": {
@@ -246,5 +246,19 @@
     "**/build/**",
     "**/node_modules/**",
     "**/backups-for-critical-files/**"
+  ],
+  "cSpell.words": [
+    "bibtex",
+    "blockquotes",
+    "Collapsibles",
+    "docstrings",
+    "frontmatter",
+    "ḥokmah",
+    "roadmaps",
+    "saccades",
+    "saccadic",
+    "Scannability",
+    "techreport",
+    "Vygotsky's"
   ]
 }

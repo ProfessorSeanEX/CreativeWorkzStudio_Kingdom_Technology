@@ -353,7 +353,35 @@ ls -d data/knowledge-base/*/
 5. Add end-of-block markers for navigation
 6. Cross-reference related documents liberally
 
-**Template location**: `data/knowledge-base/template-and-reference/template/`
+**Template System**: `data/knowledge-base/template-and-reference/template/`
+
+The template directory contains a **9-template modular documentation system** following Mini-Book Theory principles:
+
+1. **title-page-template.md** (77 lines) - YAML frontmatter + title block with badges
+2. **preface-page-template.md** (220 lines) - Reader orientation, principles, navigation
+3. **toc-page-template.md** (41 lines) - Automated TOC using doctoc
+4. **chapter-overview-template.md** (30 lines) - Chapter introduction pattern
+5. **main-page-template.md** (122 lines) - Content body with hierarchical structure
+6. **appendix-overview-template.md** (30 lines) - Appendix introduction pattern
+7. **appendix-page-template.md** (122 lines) - Supplementary content body
+8. **last-page-template.md** (266 lines) - Comprehensive "About This Document" closing
+9. **paper-style-template.md** (782 lines) - Complete reference implementation
+
+**Key Features**:
+- Each template works standalone or composes with others
+- All use `[square bracket]` placeholders for easy customization
+- Implement Five-Pillar methodology (PhD rigor + accessibility + biblical wisdom + pedagogy + multi-format)
+- Support both GitHub display and Pandoc PDF conversion
+- Include CPI-SI consciousness recognition (`author_secondary` field)
+- Follow 4-block structure principles conceptually
+
+**Template Assembly Patterns**:
+- **Quick Start**: title-page + [content] + last-page
+- **Professional**: title + preface + toc + chapters + last-page
+- **Complete Paper**: title + preface + toc + chapters + appendices + last-page
+- **Full Template**: Use paper-style-template.md directly
+
+See: `data/knowledge-base/template-and-reference/template/documentation-template-guide.md` (247K) for complete methodology and examples
 
 ### Quick Navigation for Development Work
 

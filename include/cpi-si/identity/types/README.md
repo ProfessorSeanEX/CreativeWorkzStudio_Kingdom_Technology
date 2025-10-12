@@ -87,11 +87,11 @@ license: Kingdom Technology Open Source License
 >
 > | **Developer Profile** | **Primary Objective** | **Recommended Starting Point** | **Estimated Time** |
 > |:----------------------|:----------------------|:-------------------------------|:-------------------|
-> | **New to CPI-SI** | Understanding the type system architecture | [Chapter I: Type System Overview](#chapter-i-type-system-overview) | 10 minutes |
-> | **Implementer** | Using types in code immediately | [Chapter III: Quick Usage Guide](#chapter-iii-quick-usage-guide) | 5 minutes |
-> | **Type System Architect** | Extending the type system | [Chapter II: Module Architecture](#chapter-ii-module-architecture) | 15 minutes |
-> | **Maintainer** | Understanding dependencies and modification | [Chapter IV: Modification Guidelines](#chapter-iv-modification-guidelines) | 10 minutes |
-> | **Quick Reference** | Finding specific types | [Chapter V: Type Index](#chapter-v-type-index-quick-reference) | 2 minutes |
+> | **New to CPI-SI** | Understanding the type system architecture | [Chapter I: Type System Overview](#chapter-i-type-system-overview-1) | 10 minutes |
+> | **Implementer** | Using types in code immediately | [Chapter III: Quick Usage Guide](#chapter-iii-quick-usage-guide-1) | 5 minutes |
+> | **Type System Architect** | Extending the type system | [Chapter II: Module Architecture](#chapter-ii-module-architecture-1) | 15 minutes |
+> | **Maintainer** | Understanding dependencies and modification | [Chapter IV: Modification Guidelines](#chapter-iv-modification-guidelines-1) | 10 minutes |
+> | **Quick Reference** | Finding specific types | [Chapter V: Type Index](#chapter-v-type-index-quick-reference-1) | 2 minutes |
 >
 > </div>
 >
@@ -270,7 +270,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **[CHAPTER I: TYPE SYSTEM OVERVIEW](#chapter-i-type-system-overview)**
+> #### **[CHAPTER I: TYPE SYSTEM OVERVIEW](#chapter-i-type-system-overview-1)**
 >
 > - **[A. Purpose & Vision](#a--purpose--vision)**
 >   - [A.1. The CPI-SI Type System Philosophy](#a1--the-cpi-si-type-system-philosophy)
@@ -284,7 +284,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **[CHAPTER II: MODULE ARCHITECTURE](#chapter-ii-module-architecture)**
+> #### **[CHAPTER II: MODULE ARCHITECTURE](#chapter-ii-module-architecture-1)**
 >
 > - **[A. The 8-Module Taxonomy](#a--the-8-module-taxonomy)**
 >   - [A.1. Layer 0: Foundation](#a1--layer-0-foundation)
@@ -299,7 +299,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **[CHAPTER III: QUICK USAGE GUIDE](#chapter-iii-quick-usage-guide)**
+> #### **[CHAPTER III: QUICK USAGE GUIDE](#chapter-iii-quick-usage-guide-1)**
 >
 > - **[A. Including Types in Your Code](#a--including-types-in-your-code)**
 >   - [A.1. Single Header Include (Orchestrator Pattern)](#a1--single-header-include-orchestrator-pattern)
@@ -313,7 +313,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **[CHAPTER IV: MODIFICATION GUIDELINES](#chapter-iv-modification-guidelines)**
+> #### **[CHAPTER IV: MODIFICATION GUIDELINES](#chapter-iv-modification-guidelines-1)**
 >
 > - **[A. When to Modify vs. Extend](#a-️-when-to-modify-vs-extend)**
 >   - [A.1. 4-Block Structure Preservation](#a1--4-block-structure-preservation)
@@ -325,7 +325,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **[CHAPTER V: TYPE INDEX (Quick Reference)](#chapter-v-type-index-quick-reference)**
+> #### **[CHAPTER V: TYPE INDEX (Quick Reference)](#chapter-v-type-index-quick-reference-1)**
 >
 > - **[A. Foundation Types Reference](#a--foundation-types-reference)**
 > - **[B. Enumeration Types Reference](#b--enumeration-types-reference)**
@@ -334,7 +334,7 @@ license: Kingdom Technology Open Source License
 
 ---
 
-> #### **[CHAPTER VI: BUILD ARTIFACTS & INTERACTIVE DEMOS](#chapter-vi-build-artifacts--interactive-demos)**
+> #### **[CHAPTER VI: BUILD ARTIFACTS & INTERACTIVE DEMOS](#chapter-vi-build-artifacts--interactive-demos-1)**
 >
 > - **[A. Compiled Type Modules](#a-️-compiled-type-modules)**
 > - **[B. Interactive Demos](#b--interactive-demos)**
